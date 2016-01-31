@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <h:outputStylesheet library="css" name="styles.css" />
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>ANAZON</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <p:layout fullPage="true">
+
+                    <ui:include src="header.xhtml" />
+                    <ui:include src="menu.xhtml" />
+
+                    <p:layoutUnit position="center" resizable="false">
+
+                        <p:messages showDetail="true" autoUpdate="true" id="message" />
+                        <p:dataTable var="productCategory" value="#{productCategoryController.productCategoriesList}" id="productCategoryDataTable"
+                                     rowKey="#{productCategory.id}" paginator="true" rows="8"
+                                     emptyMessage="No data found" lazy="false"
+                                     widgetVar="productCategoryTable" paginatorPosition="bottom"
+                                     paginatorAlwaysVisible="false"
+                                     selection="#{productCategoryController.selectedProductCategories}">
+                            <f:facet name="header">  
+                                Product Categories  
+                            </f:facet>
+                            <p:column selectionMode="multiple" />
+                            <p:column filterBy="#{productCategory.title}" headerText="Title"
+                                      filterMatchMode="contains">
+                                <p:commandLink value="#{productCategory.title}" action="#{productCategoryController.goToAddEdit()}">
+                                    <f:setPropertyActionListener target="#{productCategoryController.productCategory}"
+                                                                 value="#{productCategory}" />
+                                    <f:setPropertyActionListener target="#{productCategoryController.addOperation}"
+                                                                 value="false" />
+                                </p:commandLink>
+                            </p:column>
+
+                            <p:column filterBy="#{productCategory.description}"
+                                      headerText="Description" filterMatchMode="contains">
+                                <h:outputText value="#{productCategory.description}" />
+                            </p:column>
+
+                        </p:dataTable>
+                        <div style="text-align: center;">
+                            <p:commandButton
+                                value="Add New" action="#{productCategoryController.goToAddEdit()}">
+                                <f:setPropertyActionListener target="#{productCategoryController.addOperation}"
+                                                             value="true" />
+                            </p:commandButton>
+
+                            <p:commandButton value="Delete" onclick="PF('confirmation').show()" />
+                        </div>
+
+
+
+                    </p:layoutUnit>
+
+                </p:layout>
+
+                <p:confirmDialog message="Are you sure?" width="500" closable="true"
+                                 showEffect="fade" hideEffect="explode" severity="alert"
+                                 widgetVar="confirmation">
+                    <p:commandButton value="No" onclick="PF('confirmation').hide()"
+                                     style="float:right;" type="button" />
+                    <p:commandButton value="Yes" style="float:right;"
+                                     actionListener="#{productCategoryController.delete()}" update="message productCategoryDataTable"
+                                     oncomplete="PF('confirmation').hide()" />
+                </p:confirmDialog>
+
+
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
+

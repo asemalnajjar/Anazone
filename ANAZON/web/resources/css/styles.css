@@ -1,0 +1,62 @@
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+.ui-menu {
+    width: 15.5em !important;
+}
+
+.ui-menu .ui-menuitem-link {
+    padding: 1em 0 1em 0.5em !important;
+    width: 95% !important;
+}
+
+.ui-menu .ui-widget-header h1, .ui-menu .ui-widget-header h2, .ui-menu .ui-widget-header h3, .ui-menu .ui-widget-header h4, .ui-menu .ui-widget-header h5, .ui-menu .ui-widget-header h6{
+    font-size: 1.4em !important;
+}
+
+
+.ui-menu .ui-menu-list .ui-menuitem{
+    border-bottom: 1px solid #989898 !important;
+    border-radius: 0 !important;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+    border: 0 !important;
+}
+
+.ui-widget-content {
+    border: 0 !important;   
+}
+
+/*.ui-menu .ui-menuitem {
+    padding: 0.75em !important;
+}*/

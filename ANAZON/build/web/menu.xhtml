@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:layoutUnit position="west" header="Menu" closable="false" collapsible="false">
+        <p:menu style="width:182px">
+
+            <p:menuitem action="index?faces-redirect=true" value="Home" immediate="true" />
+
+            <p:menuitem action="#{productController.goToProducts}" value="Products Management" ajax="false">
+                <f:setPropertyActionListener target="#{productController}" value="#{null}" />
+            </p:menuitem>
+
+            <p:menuitem action="#{productCategoryController.goToProductCategories()}" value="Categories Management" ajax="false">
+                <f:setPropertyActionListener target="#{productCategoryController}" value="#{null}" />
+            </p:menuitem>
+
+            <p:menuitem value="Orders Management" />
+
+            <p:menuitem value="Users Management" />
+
+            <p:menuitem value="Customer Management" />
+
+        </p:menu>
+    </p:layoutUnit>
+</ui:composition>
