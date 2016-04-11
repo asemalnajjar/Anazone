@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Asem
+ */
 package com.anazon.common;
 
 public class ConfigurationConstants {
