@@ -13,7 +13,7 @@ import org.eclipse.persistence.expressions.ExpressionBuilder;
 
 /**
  *
- * @author Abdallah
+ * @author Asem
  */
 public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 
