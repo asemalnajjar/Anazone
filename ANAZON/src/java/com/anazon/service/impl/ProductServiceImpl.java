@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Asem, Abdallah
+ * @author Asem
  */
 public class ProductServiceImpl implements ProductService {
 
