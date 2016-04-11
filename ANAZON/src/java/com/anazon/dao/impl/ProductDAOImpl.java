@@ -13,7 +13,7 @@ import org.eclipse.persistence.expressions.ExpressionBuilder;
 
 /**
  *
- * @author Abdallah
+ * @author Asem
  */
 public class ProductDAOImpl implements ProductDAO {
 
